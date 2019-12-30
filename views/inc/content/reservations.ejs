@@ -3,8 +3,18 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="col-md-6 animate-box">
+                <% if(typeof error === 'string') {%>
+                    <div class="altert alert-danger">                        
+                        <%= error %>
+                    </div>
+                <% } %>
+                <% if(typeof success === 'string') {%>
+                    <div class="altert alert-success">                        
+                        <%= success %>
+                    </div>
+                <% } %>
                 <h3>Reserva de mesa</h3>
-                <form action="#">
+                <form action="/reservations" method="POST">
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label for="inputName">Nome</label>
