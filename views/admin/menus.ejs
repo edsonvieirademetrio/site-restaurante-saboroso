@@ -142,3 +142,28 @@
 
     <!-- Main Footer -->
 <%- include('inc/footer') -%>
+
+<script>
+  let formCreate = document.querySelector("#modal-create form")
+
+  formCreate.addEventListener('submit', e => {
+
+      e.preventDefault()
+      
+      let formCreateData = new FormData(formCreate)
+
+      fetch("/admin/menus",{
+        method: 'POST',
+        body: formCreateData
+      })
+      .then(response => response.json())
+      .then(json => {
+        
+        window.location.reload()
+        //console.log('JSON', json)
+
+      })
+
+    })  
+
+</script>
